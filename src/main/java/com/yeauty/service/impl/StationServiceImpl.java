@@ -61,7 +61,7 @@ public class StationServiceImpl implements StationService {
             }
 
             JsonNode jsonNode = JsonUtils.jsonToJsonNode(json);
-
+            logger.info("---城市信息json数据 jsonNode={}",jsonNode );
             if (jsonNode == null) {
                 DingRobotUtils.send(webhookToken, "解析城市信息json数据为空，请看返回json是否有误，或者IP是否被封, url:" + stationsUrl + " ,json:" + json, true);
                 logger.error("解析城市信息json数据为空，请看返回json是否有误，或者IP是否被封, url:" + stationsUrl + " ,json:" + json);
@@ -69,6 +69,7 @@ public class StationServiceImpl implements StationService {
             }
 
             JsonNode dataNode = jsonNode.get("data");
+            logger.info("+++城市信息json数据 dataNode={}",dataNode );
             if (dataNode == null) {
                 DingRobotUtils.send(webhookToken, "解析城市信息json内的data数据为空，请看返回json是否有误，或者IP是否被封, url:" + stationsUrl + " ,json:" + json, true);
                 logger.error("解析城市信息json内的data数据为空，请看返回json是否有误，或者IP是否被封, url:" + stationsUrl + " ,json:" + json);

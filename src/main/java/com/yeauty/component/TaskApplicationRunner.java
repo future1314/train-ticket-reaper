@@ -40,9 +40,9 @@ public class TaskApplicationRunner implements ApplicationRunner {
                 threadPoolTaskScheduler.schedule(new Runnable() {
                     @Override
                     public void run() {
-                        logger.info("使用 极速模式 开始检测");
+                        //logger.info("使用 极速模式 开始检测");
                         reaperService.monitor();
-                        logger.info("使用 极速模式 检测结束");
+                        //logger.info("使用 极速模式 检测结束");
                     }
                 }, trigger);
                 break;
